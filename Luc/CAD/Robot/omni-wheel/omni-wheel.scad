@@ -146,7 +146,7 @@ module wheelMount(subWheelDiameter) {
 						for(theta = [0])
 							rotate([0, 0, theta])
 								translate([x, y, -15/2])
-									cylinder(d=6, h=15/2);
+									cylinder(d=8, h=15/2);
 			}
 
 			cylinder(d = 14, h = 15/2);
@@ -156,8 +156,10 @@ module wheelMount(subWheelDiameter) {
 			for(y = [-15/2, 15/2])
 				for(theta = [0])
 					rotate([0, 0, theta])
-						translate([x, y, -15/2])
+						translate([x, y, -15/2]) {
 							cylinder(d=3, h=15/2);
+							cylinder(d=7, h=3.5);
+						}
 
 		cylinder(d = 5.5, h = 100, center = true);
 
