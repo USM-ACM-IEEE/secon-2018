@@ -21,7 +21,7 @@ module main() {
 			for(z = [15, 35])
 				translate([0, y, z])
 					rotate([0, 90, 0])
-						cylinder(d = 7, h = 10);
+						cylinder(d = 8, h = 10);
 
 		translate([5, 0, 0])
 			cube([30, 10, 5]);
