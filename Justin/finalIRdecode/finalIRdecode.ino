@@ -147,6 +147,7 @@ void loop()
         currentState = 0;
         countOfBitsRead = 0;
         downTime = 0;
+	firstCountOfOnes = 0;
       }
       break;
   }
