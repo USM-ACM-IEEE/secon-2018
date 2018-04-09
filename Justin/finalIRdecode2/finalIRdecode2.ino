@@ -15,17 +15,6 @@ unsigned int countOfBitsRead;                 // Tracks the current number of bi
 //=========================== Prototypes =======================================
 
 /**
- * This is the interupt call function for the FALLING of the pin.
- * On call it will set the time to the current systemTime function and attach the
- * onUp function to interupt on RISING
- */
-void onDown();
-/**
- * This is the interupt call function for the RISING of the pin.
- * On call it will set the downTime to be the time since the falling of the pin
- */
-void onUp();
-/**
  * This is the function that will calculate the downTime of the burst by firing
  * on the CHANGE interupt and checking for HIGH or LOW on the pin and storing
  * the system time in using systemTime
@@ -147,6 +136,7 @@ void loop()
         currentState = 0;
         countOfBitsRead = 0;
         downTime = 0;
+	firstCountOfOnes = 0;
       }
       break;
   }
@@ -155,20 +145,6 @@ void loop()
 
 //=========================== Function Definitions =============================
 
-void onDown()
-{
-  calculatedTime = systemTime;
-  downTime = 0;
-  detachInterrupt(digitalPinToInterrupt(interruptPin));
-  attachInterrupt(digitalPinToInterrupt(interruptPin), onUp,  RISING);
-}
-
-void onUp()
-{
-  downTime = systemTime - calculatedTime;
-  detachInterrupt(digitalPinToInterrupt(interruptPin));
-  attachInterrupt(digitalPinToInterrupt(interruptPin), onDown, FALLING);
-}
 
 void onChange()
 {
