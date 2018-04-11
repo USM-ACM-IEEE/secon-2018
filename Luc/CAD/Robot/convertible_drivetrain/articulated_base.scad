@@ -37,7 +37,7 @@ module articulated_base() {
 
 module bar() {
 	difference() {
-		cube([130, 30, 5]);
+		cube([130, 20, 5]);
 
 		for(x = [5:10:145])
 			for(y = [5:10:55])
@@ -50,57 +50,41 @@ module sidePiece() {
 	difference() {
 		union() {
 			hull() {
-				translate([0, 100, 5]) 
+				translate([0, 100-20, 5]) 
 					rotate([0, 90, 0])
-						cylinder(d = 10, h = 5);
-				translate([0, 5+3, -25/2 + 30])
-					cube([5, 70, 25]);
-
-				translate([0,0,52.5])
-					cube([5, 35, 5]);
-				translate([0, -5, 20])
-					cube([5, 5, 35]);
+						cylinder(d = 10, h = 10);
+				translate([0, 5+3, -25/2 + 30 - 5])
+					cube([10, 70, 25]);
 
 				translate([0, 37.5, 7.5]) 
 					rotate([0, 90, 0])
-						cylinder(d = 10, h = 5);
+						cylinder(d = 10, h = 10);
 			}
-			translate([0, -5, 20])
-				cube([25, 5, 35]);
-			translate([0, -5, 52.5])
-				hull() {
-					cube([5, 40, 5]);
-					cube([25, 5, 5]);
-				}
 		}
 
 		rotate([0, 90, 0]) {
-			translate([-5, 100])
+			translate([-5, 100-20])
 				cylinder(d = 4, h = 125);
+			translate([-5, 100-20, 5])
+				cylinder(d = 7, h = 6);
 			for(y = [37.5:10:57.5])
 				translate([-7.5, y])
 					cylinder(d = 3, h = 125);
 		}
 
-		for(z = [7.5:10:47.5])
-			for(x = [5:10:120])
-				translate([x+5, -5, z])
-					rotate([-90, 0, 0])
-						cylinder(d = 3, h = 5);
-
-		translate([-1, 5+3, 30])
+		#translate([-1, 5+3, 30 - 5])
 			rotate([90, 0, 90])
 				union() {
 					translate([15, 0])
-						cylinder(d = 12, h = 6);
+						cylinder(d = 12, h = 12);
 
 					translate([15+20, 17.5/2])
-						cylinder(d = 3, h = 6);
+						cylinder(d = 3, h = 12);
 					translate([15+20, -17.5/2])
-						cylinder(d = 3, h = 6);
+						cylinder(d = 3, h = 12);
 
 					translate([15+20+7.5, -15/2])
-						cube([25, 15, 6]);
+						cube([25, 15, 12]);
 				}
 	}
 }

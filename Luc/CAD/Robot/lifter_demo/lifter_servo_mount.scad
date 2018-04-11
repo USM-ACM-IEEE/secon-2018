@@ -6,11 +6,11 @@ module main() {
 					translate([-5, y])
 						cylinder(d = 10, h = 20);
 			}
-			//hull() {
-			//	translate([-5, 5])
-			//		cylinder(d = 10, h = 20);
-			//	cube([10, 10, 20]);
-			//}
+			hull() {
+				translate([-5, 5])
+					cylinder(d = 10, h = 20);
+				cube([10, 10, 20]);
+			}
 		}
 
 		for(y = [-5, 5, 15])
