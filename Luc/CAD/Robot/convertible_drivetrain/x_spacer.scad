@@ -28,6 +28,10 @@ module main() {
 				translate([0, y, z])
 					rotate([0, 90, 0])
 						cylinder(d = 8, h = 10);
+
+		translate([0, -70/2, 25])
+			rotate([0, 90, 0])
+				cylinder(d = 74, h = 40, $fn = 50);
 	}
 }
 

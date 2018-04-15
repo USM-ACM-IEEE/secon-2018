@@ -13,6 +13,7 @@ Servo platformServo1;
 Servo platformServo2;
 
 void setupPlatform() {
+  lowerPlatform();
   platformServo1.attach(PLATFORM_SERVO_1);
   platformServo2.attach(PLATFORM_SERVO_2);
 }

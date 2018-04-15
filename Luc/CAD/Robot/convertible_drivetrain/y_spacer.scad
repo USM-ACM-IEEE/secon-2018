@@ -23,8 +23,9 @@ module main() {
 					rotate([0, 90, 0])
 						cylinder(d = 8, h = 10);
 
-		translate([5, 0, 0])
-			cube([30, 10, 5]);
+		translate([0, 30 + 70/2, 25])
+			rotate([0, 90, 0])
+				cylinder(d = 74, h = 40, $fn = 50);
 	}
 }
 
