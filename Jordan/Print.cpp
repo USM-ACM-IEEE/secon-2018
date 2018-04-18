@@ -37,9 +37,6 @@ void loop() {
   binDec(pin3);
   binDec(pin4);
 
-  if(pin4 == 7){
-    lcd.print("Aligned");
-  }
 }
 
 //==================== Binary to Decimal ====================
@@ -51,5 +48,10 @@ void binDec(int num){
      b *= 2;
      temp /= 10;
   }
-  lcd.print(temp);
+  if( temp == 7){
+    lcd.print("Aligned");
+  }
+  else {
+    lcd.print(temp);
+  }
 }
