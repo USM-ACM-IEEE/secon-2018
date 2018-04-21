@@ -37,7 +37,7 @@ module articulated_base() {
 
 module bar() {
 	difference() {
-		cube([130, 20, 5]);
+		cube([130, 30, 5]);
 
 		for(x = [5:10:145])
 			for(y = [5:10:55])
@@ -89,6 +89,6 @@ module sidePiece() {
 	}
 }
 
-//bar();
-sidePiece();
+bar();
+//sidePiece();
 //articulated_base();

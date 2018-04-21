@@ -60,11 +60,11 @@ module wheel(outerDiameter, subWheelDiameter, subWheelLength) {
 		rotate([90, 0, 0]) {
 			intersection() {
 				cube([width, width, subWheelDiameter], center = true);
-				cylinder(d = outerDiameter - 5, h = subWheelDiameter/2, center = true);
+				cylinder(d = outerDiameter - 2, h = subWheelDiameter/2, center = true);
 			}
 		}
 
-		subWheelAssembly(outerDiameter = outerDiameter, subWheelDiameter = subWheelDiameter + 2, subWheelLength = subWheelLength + 2);
+		subWheelAssembly(outerDiameter = outerDiameter, subWheelDiameter = subWheelDiameter + 2, subWheelLength = subWheelLength + 1);
 
 		// Mounting Holes
 		rotate([90, 0, 0]) {
@@ -74,14 +74,16 @@ module wheel(outerDiameter, subWheelDiameter, subWheelLength) {
 					translate([x, y])
 						cylinder(d = 3.5, h = subWheelDiameter, center = true);
 		}
-		for(theta = [0:90:270])
+		#for(theta = [0:90:270])
 			rotate([0, theta, 0])
 				translate([outerDiameter/2 - subWheelDiameter/2, 0]) {
-					cylinder(d = 3.5, h = 42.8, center = true);
-					translate([0, 0, 42.8/2])
+					translate([5, 0, 0])
+					cube([10, 20, 30 + 1], center = true);
+					cylinder(d = 4, h = 42.8, center = true);
+					translate([0, 0, 42.8/2 - 1])
 						cylinder(d = 6, h = 2.8*2, center = true);
-					translate([0, 0, -42.8/2])
-						cylinder(d = 6.5, h = 2.25*2, center = true, $fn=6);
+					translate([0, 0, -42.8/2 + 1 - 5])
+						cylinder(d = 6.5, h = 2.25*2 + 10, center = true, $fn=6);
 				}
 	}
 }
@@ -173,8 +175,8 @@ module wheelMount(subWheelDiameter) {
 //wheelAssembly(outerDiameter=50, subWheelDiameter=14, subWheelLength=17.5);
 //wheelAssembly(outerDiameter=64, subWheelDiameter=18, subWheelLength=27);
 
-//spacer(subWheelDiameter = 20);
-wheelMount();
+spacer(subWheelDiameter = 20);
+//wheelMount();
 //wheelAssembly(outerDiameter=70, subWheelDiameter=20, subWheelLength=30);
 //wheel(outerDiameter=70, subWheelDiameter=20, subWheelLength=30);
 //subWheelAssembly(outerDiameter=70, subWheelDiameter=20, subWheelLength=30);
