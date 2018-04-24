@@ -412,6 +412,7 @@ void raiseFlag() {
   delay(500);
   servo2.write(160);
   
+  stepperEnable();
   digitalWrite(LEFT_DIR, LOW);
   digitalWrite(RIGHT_DIR, LOW);
   for(int i = 0; i < 5000; i++) {
