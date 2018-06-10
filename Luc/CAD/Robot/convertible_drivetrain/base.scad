@@ -86,5 +86,5 @@ module wheelGuard() {
 }
 
 main();
-translate([50/2+130/2+5, 0])
-	wheelGuard();
+//translate([50/2+130/2+5, 0])
+//	wheelGuard();
